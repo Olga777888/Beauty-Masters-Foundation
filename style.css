@@ -1,0 +1,333 @@
+.body_hide {
+	opacity: 0;
+	transition: .9s opacity ease-in-out;
+height: 70px;  
+}
+.body_visible {
+	opacity: 1;
+}
+ .text_body {
+  position: absolute;
+  width:100%;
+  text-align:center;
+  font-size: 57px;
+          color:rgb(180, 151, 6);
+       margin-top: 50px;
+       margin-right: 10px;
+         line-height: 1.5;
+ }
+ .logo2 {
+  position: absolute;
+  border-radius: 180px;
+  margin-top: 200px;
+       margin-left: 720px;
+
+ 
+ }
+.container {
+  border-radius: 30px;
+  display: block;
+  text-align: center; 
+    justify-content: center;
+    align-items: center;
+    scroll-behavior: smooth;
+    background: rgba(212, 241, 222, 0.7);
+    
+    margin-left: 450px;
+}
+
+h1 a {
+  font-size: 60px;
+  color: #c9a506;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.popover {
+   display: none;
+   box-shadow: 0px 4px 6px rgba(1, 56, 22, 0.7);
+   height: 15px;
+}
+
+.popover:target {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popover .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 0;
+  height: 0;
+  color: #fff;
+  background-color: rgba(1, 56, 22, 0.7);
+  animation: 1s grow ease forwards;
+  text-align: center;
+}
+
+.nav_list  {
+  list-style-type: none;
+}
+
+.nav_list a {
+  text-decoration: none;
+  font-size: 50px;
+  color: #fff;
+}
+
+.nav_list_item {
+  height: 100%;
+  overflow: hidden;
+}
+
+.nav_list li {
+  padding: 15px 0;
+  text-transform: uppercase;
+  transform: translateY(200px);
+  opacity: 0;
+  animation: 2s slideUp ease forwards .5s;
+  position: relative;
+}
+
+.nav_list li::before {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0px;
+  left: 0;
+  bottom: 10px;
+  background:rgba(1, 56, 22, 0.7) ; 
+  transition: all .5s ease;
+}
+
+.nav_list li:hover:before {
+      width: 100%;
+}
+
+.popover p {
+  padding: 50px;
+  opacity: 0;
+  animation: 1s fadeIn ease forwards 1s;
+}
+
+.popover .close::after {
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  display: flex;
+  z-index: 1;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  background-color:rgba(1, 56, 22, 0.7) ;
+  color: #fff;
+  content: "×";
+  cursor: pointer;
+  opacity: 0; 
+  animation: 1s fadeIn ease forwards .5s;
+}
+
+@keyframes grow {
+  100% {
+    height: 90%;
+    width: 90%;
+ }
+}
+
+@keyframes fadeIn {
+100% {
+  opacity: 1;
+ }
+}
+
+@keyframes slideUp {
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/* Подключение шрифта Roboto */
+@import url("https:/*fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* Убираем все отступы */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+/* При расчете размеров инпутов учитываем внутренние отступы и границы */
+input,
+textarea {
+  box-sizing: border-box;
+}
+
+/* В body устанавливаем шрифт, ширину и высоту, а также фон */
+.wrapper_content{
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #fff1eb, #b7e6cb);
+  display: flex;
+  justify-content: center; /* чтобы контейнер */
+  align-items: center; /* был по центру */
+}
+
+/* Ограничиваем контейнер по ширине 1000px */
+.container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 20px;
+}
+
+/* Стили самой формы */
+.content {
+  display: flex; /* делаем колонки в ряд */
+  align-items: center; /* выравниваем по центру */
+  justify-content: space-between; /* колонки растянутся на всю ширину */
+  background: #fff;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
+}
+
+/* Стили левой колонки */
+.left-side {
+  width: 25%; /* занимает 25% общей ширины */
+  height: 100%; /* растягиваем на всю высоту */
+  position: relative; /* позиционирование относительное (для ::before) */
+  display: flex;
+  flex-direction: column; /* внутри элементы располагаем в колонку */
+}
+
+/* Стили разделительной линии между левой и правой колонкой */
+.left-side::before {
+  content: ""; /* контент нам не нужен */
+  position: absolute; /* позиционируем относительно .left-side */
+  height: 70%; /* высота 70% от .left-side */
+  width: 2px; /* ширина 2px */
+  background: #afafb6;
+  right: -15px; /* позиционируем справа + отступ 15px (справа) */
+  top: 50%; /* выравниваем по центру */
+  transform: translateY(-50%); /* выравниваем по центру */
+}
+
+/* Стили правой колонки */
+.right-side {
+  width: 75%; /* занимает 75% общей ширины */
+  margin-left: 75px;
+}
+
+/* Элементы левой колонки: адрес, телефон, email */
+.details {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Общие стили для иконок */
+.details i {
+  font-size: 25px; /* задаем размер */
+  color: #3e2093; /* задаем цвет */
+  margin-bottom: 10px;
+}
+
+/* Стили для заголовков левой колонки */
+.topic {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 7px; /* отступ снизу 7px */
+}
+
+/* Стили для текста левой колонки */
+.text-one,
+.text-two {
+  font-size: 14px;
+  color: #afafb6;
+}
+
+/* Заголовок правой колонки */
+.topic-text {
+  font-size: 23px;
+  font-weight: 600;
+  color: #3e2093;
+  margin-bottom: 10px;
+}
+
+/* Текст правой колонки */
+.right-side p {
+  margin-bottom: 20px;
+}
+
+/* Контейнер для input'ов формы */
+.input-box {
+  height: 50px; /* по сути задаем высоту input'а */
+  width: 100%; /* ширина на всю ширину правой колонки (с учетом padding) */
+  margin-bottom: 20px; /* отступаем снизу 20px */
+}
+
+/* Стили для input и textarea (поле сообщение) */
+.input-box input,
+.input-box textarea {
+  height: 100%; /* растягиваем на всю высоту контейнера 50px */
+  width: 100%; /* растягиваем на всю ширину */
+  border: none; /* убираем внешние края */
+  border-radius: 5px; /* скругляем края */
+  background: #f0f1f8; /* задаем цвет фона */
+  padding: 0 20px; /* отступ справа и слева 20px */
+}
+
+/* Отдельно стилизуем поле сообщение */
+.input-box textarea {
+  resize: none; /* чтобы нельзя было менять высоту */
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Это контейнер для поля сообщение */
+.message-box {
+  min-height: 110px; /* минимальная высота 110px */
+}
+
+/* Стили для контейнера кнопки */
+.button {
+  display: inline-block; /* делаем блочно-строчный элемент */
+}
+
+/* Стили для самой кнопки */
+.button input[type="button"] {
+  color: #fff;
+  font-size: 18px;
+  background: rgb(19, 68, 2) ;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  transition: 0.2s; /* чтобы плавно менялся цвет при наведении (:hover) */
+}
+
+/* Меняем цвет фона при наведении на кнопку */
+.button input[type="button"]:hover {
+  background: rgb(10, 34, 1);
+}
+
+
